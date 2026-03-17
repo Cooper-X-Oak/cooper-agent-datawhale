@@ -25,11 +25,12 @@
 ├── 学习计划.md
 ├── 打卡总表.md
 ├── 项目总结.md
-├── Task00-环境配置/
+├── Task00-01-环境与第一章/
 │   ├── README.md
 │   ├── ToStudyList.md
+│   ├── 参考资料/
+│   ├── 实践项目/
 │   └── 截图/
-├── Task01-第一章/
 ├── Task02-第二章/
 ├── Task03-第三章/
 ├── Task04-第四章/
@@ -42,8 +43,8 @@
 
 | Task | 主题 | 任务说明 | ToStudyList |
 |------|------|----------|-------------|
-| Task00 | 环境配置与前言 | [README](./Task00-环境配置/README.md) | [ToStudyList](./Task00-环境配置/ToStudyList.md) |
-| Task01 | 第一章 初识智能体 | [README](./Task01-第一章/README.md) | [ToStudyList](./Task01-第一章/ToStudyList.md) |
+| Task00 | 环境配置与前言 | [README](./Task00-01-环境与第一章/README.md) | [ToStudyList](./Task00-01-环境与第一章/ToStudyList.md) |
+| Task01 | 第一章 初识智能体 | [README](./Task00-01-环境与第一章/README.md) | [ToStudyList](./Task00-01-环境与第一章/ToStudyList.md) |
 | Task02 | 第二章 智能体发展史 | [README](./Task02-第二章/README.md) | [ToStudyList](./Task02-第二章/ToStudyList.md) |
 | Task03 | 第三章 大语言模型基础 | [README](./Task03-第三章/README.md) | [ToStudyList](./Task03-第三章/ToStudyList.md) |
 | Task04 | 第四章 智能体经典范式构建 | [README](./Task04-第四章/README.md) | [ToStudyList](./Task04-第四章/ToStudyList.md) |
