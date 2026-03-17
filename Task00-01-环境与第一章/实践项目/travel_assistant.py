@@ -1,26 +1,3 @@
-# 智能旅行助手 - 第一章示例代码
-
-## 环境准备
-
-```bash
-pip install openai python-dotenv requests tavily-python
-```
-
-## 配置文件 (.env)
-
-在项目根目录创建 `.env` 文件：
-
-```bash
-# .env file
-LLM_API_KEY="your-api-key-here"
-LLM_MODEL_ID="gpt-4"
-LLM_BASE_URL="https://api.openai.com/v1"
-TAVILY_API_KEY="your-tavily-key-here"
-```
-
-## 完整代码
-
-```python
 import os
 import re
 import requests
@@ -144,6 +121,14 @@ class OpenAICompatibleClient:
 
 # ==================== 主程序 ====================
 
+def wait_for_exit():
+    """Keep terminal open for screenshot capture."""
+    if os.name == "nt":
+        os.system("pause")
+    else:
+        input("\nPress Enter to exit...")
+
+
 def main():
     # 配置LLM客户端
     API_KEY = os.getenv("LLM_API_KEY")
@@ -222,68 +207,7 @@ def main():
         prompt_history.append(observation_str)
 
 if __name__ == "__main__":
-    main()
-```
-
-## 运行方式
-
-```bash
-python travel_assistant.py
-```
-
-## 预期输出
-
-```
-用户输入: 你好，请帮我查询一下今天北京的天气，然后根据天气推荐一个合适的旅游景点。
-========================================
---- 循环 1 ---
-
-正在调用大语言模型...
-大语言模型响应成功。
-模型输出:
-Thought: 首先需要获取北京今天的天气情况，之后再根据天气情况来推荐旅游景点。
-Action: get_weather(city="北京")
-
-Observation: 北京当前天气:Sunny，气温26摄氏度
-========================================
---- 循环 2 ---
-
-正在调用大语言模型...
-大语言模型响应成功。
-模型输出:
-Thought: 现在已经知道了北京今天的天气是晴朗且温度适中，接下来可以基于这个信息来推荐一个适合的旅游景点了。
-Action: get_attraction(city="北京", weather="Sunny")
-
-Observation: 北京在晴天最值得去的旅游景点是颐和园，因其美丽的湖景和古建筑。另一个推荐是长城，因其壮观的景观和历史意义。
-========================================
---- 循环 3 ---
-
-正在调用大语言模型...
-大语言模型响应成功。
-模型输出:
-Thought: 已经获得了两个适合晴天游览的景点建议，现在可以根据这些信息给用户提供满意的答复。
-Action: Finish[今天北京的天气是晴朗的，气温26摄氏度，非常适合外出游玩。我推荐您去颐和园欣赏美丽的湖景和古建筑，或者前往长城体验其壮观的景观和深厚的历史意义。希望您有一个愉快的旅行！]
-
-任务完成，最终答案: 今天北京的天气是晴朗的，气温26摄氏度，非常适合外出游玩。我推荐您去颐和园欣赏美丽的湖景和古建筑，或者前往长城体验其壮观的景观和深厚的历史意义。希望您有一个愉快的旅行！
-```
-
-## 常见问题
-
-### 1. API调用失败
-- 检查 `.env` 文件中的API密钥是否正确
-- 确认网络连接正常
-- 检查API额度是否充足
-
-### 2. 依赖包安装失败
-```bash
-# 使用国内镜像源
-pip install -i https://pypi.tuna.tsinghua.edu.cn/simple openai python-dotenv requests tavily-python
-```
-
-### 3. 输出格式解析错误
-- 检查系统提示词是否正确
-- 尝试使用更强大的模型（如GPT-4）
-- 增加输出格式的约束说明
-
----
-*代码来源：hello-agents 第一章*
+    try:
+        main()
+    finally:
+        wait_for_exit()
